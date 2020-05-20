@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Lesson5_wpf.Models
 {
-    class Employee
+    internal class Employee
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Patronymic { get; set; }
-        public string Department { get; set; }
+        public EmployeeDeparment Department { get; set; }
     }
 }
