@@ -22,7 +22,7 @@
             </MenuItem>
             
             <MenuItem Header="Помощь">
-                <MenuItem Header="О программе"/>
+                <MenuItem Header="О программе"/> 
             </MenuItem>
         </Menu>
 
