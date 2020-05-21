@@ -18,12 +18,13 @@ namespace Lesson5_wpf.Services
                 .Select(i => new EmployeeDeparment()
                 {
                     Id = i,
+                    Name = $"Department {i}",
                     Employee = Enumerable
                     .Range(1, 10)
                     .Select(j => new Employee
                     {
                         Id = employee_id,
-                        Name  = $"Name {employee_id}",
+                        Name = $"Name {employee_id}",
                         Surname = $"Surname {employee_id}",
                         Patronymic = $"Patronymic {employee_id++}"
                     }).ToList()

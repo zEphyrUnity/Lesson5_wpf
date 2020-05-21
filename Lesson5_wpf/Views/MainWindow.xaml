@@ -3,39 +3,52 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:services="clr-namespace:Lesson5_wpf.Services"
         xmlns:local="clr-namespace:Lesson5_wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
+    <Window.Resources>
+        <services:EmployeeManager x:Key="EmployeeManager"/>
+    </Window.Resources>
 
-        <Menu Grid.Row="0">
+    <DockPanel>
+        <Menu DockPanel.Dock="top">
             <MenuItem Header="Файл">
                 <MenuItem Header="Открыть файл"/>
                 <MenuItem Header="Закрыть файл"/>
                 <MenuItem Header="Сохранить файл"/>
                 <MenuItem Header="Выйти" Click="OnCloseMenuItemClick"/>
             </MenuItem>
-
             <MenuItem Header="Помощь">
                 <MenuItem Header="О программе"/>
             </MenuItem>
         </Menu>
 
-        <StatusBar Grid.Row="2">
-            <StatusBar.Background>
-                <RadialGradientBrush>
-                    <GradientStop Color="#FF7E7017"/>
-                    <GradientStop Color="#FF2252B9" Offset="1"/>
-                    <GradientStop Color="#FFAC1F5F" Offset="0.433"/>
-                    <GradientStop Color="#FF229F1C" Offset="0.745"/>
-                </RadialGradientBrush>
-            </StatusBar.Background>
-            <TextBlock Text="Урок 5 - WPF"/>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock Text="Готов!"></TextBlock>
+            </StatusBarItem>
         </StatusBar>
-    </Grid>
+
+        <TabControl>
+            <TabItem Header="Департаменты">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Header="Департаменты">
+                        <ComboBox ItemsSource="{Binding Departments, Source={StaticResource EmployeeManager}}" VerticalAlignment="Top"></ComboBox>
+                    </GroupBox>
+                    <GroupBox Header="Сотрудники выбранного департамента" Grid.Column="1">
+                        <ListView></ListView>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Сотрудники"></TabItem>
+        </TabControl>
+
+    </DockPanel>
+
+
 </Window>
