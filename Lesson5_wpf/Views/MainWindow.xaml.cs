@@ -23,6 +23,12 @@ namespace Lesson5_wpf
         public MainWindow()
         {
             InitializeComponent();
+            Title = "Lesson5_wpf";
+        }
+
+        private void OnCloseMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
