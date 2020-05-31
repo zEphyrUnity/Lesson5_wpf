@@ -14,7 +14,7 @@
     <DockPanel>
         <Menu DockPanel.Dock="top">
             <MenuItem Header="Файл">
-                <MenuItem Header="Открыть файл"/>
+                <MenuItem Header="Открыть файл" Click="MenuItem_Click"/>
                 <MenuItem Header="Закрыть файл"/>
                 <MenuItem Header="Сохранить файл"/>
                 <MenuItem Header="Выйти" Click="OnCloseMenuItemClick"/>
@@ -38,17 +38,17 @@
                         <ColumnDefinition Width="7*"/>
                     </Grid.ColumnDefinitions>
                     <GroupBox Header="Департаменты">
-                        <ComboBox ItemsSource="{Binding Departments, Source={StaticResource EmployeeManager}}" VerticalAlignment="Top"></ComboBox>
+                        <ComboBox ItemsSource="{Binding Departments, Source={StaticResource EmployeeManager}}"
+                                  Name="DepartmentsList"
+                                  DisplayMemberPath="Name"
+                                  VerticalAlignment="Top"/>
                     </GroupBox>
                     <GroupBox Header="Сотрудники выбранного департамента" Grid.Column="1">
-                        <ListView></ListView>
+                        <TextBox Text="{Binding SelectedValue, ElementName=DepartmentsList}"/>
                     </GroupBox>
                 </Grid>
             </TabItem>
             <TabItem Header="Сотрудники"></TabItem>
         </TabControl>
-
     </DockPanel>
-
-
 </Window>

@@ -1,8 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lesson5_wpf.Models
 {
@@ -12,8 +11,6 @@ namespace Lesson5_wpf.Models
 
         public string Name { get; set; }
 
-        public List<Employee> Employee { get; set; } = new List<Employee>();
-
-        public override string ToString() => $"{Name}";
+        internal List<Employee> _Employee { get; set; } = new List<Employee>();
     }
 }

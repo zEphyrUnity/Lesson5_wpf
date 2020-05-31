@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lesson5_wpf.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,11 @@ namespace Lesson5_wpf
         private void OnCloseMenuItemClick(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeManager.LoadFromFile();
         }
     }
 }
